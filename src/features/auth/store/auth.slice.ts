@@ -5,7 +5,12 @@ import { AuthStore, Loading } from '@/shared/types';
 import { doLogin } from '@/features/auth/store/auth.actions';
 
 export const initialState: AuthStore = {
-  user: undefined,
+  user: {
+    uid: '',
+    email: '',
+    displayName: '',
+    photoURL: '',
+  },
   error: undefined,
   loading: Loading.idle,
   isAuthenticated: false,
@@ -21,13 +26,13 @@ const authExtraReducers = (builder: ActionReducerMapBuilder<AuthStore>) => {
    .addCase(doLogin.pending, state => {
      state.loading = Loading.pending;
      state.isAuthenticated = false;
-     state.user = undefined;
+     state.user = initialState.user;
      state.error = undefined;
    })
    .addCase(doLogin.rejected, (state, action) => {
      state.loading = Loading.failed;
      state.isAuthenticated = false;
-     state.user = undefined;
+     state.user = initialState.user;
      errorHandler(state, action.payload as string);
    })
    .addCase(doLogin.fulfilled, (state, action) => {

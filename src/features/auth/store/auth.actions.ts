@@ -24,7 +24,17 @@ export const doLogin = createAsyncThunk<
 >('auth/login', async (param, { rejectWithValue, dispatch }) => {
   try {
     const userCredential  = await signInWithEmailAndPassword(param.auth, param.email, param.password);
-    return userCredential?.user;
+    const user = userCredential.user;
+
+    // ✅ Extract only necessary, serializable user data
+    const serializedUser = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName || "Anonymous",
+      photoURL: user.photoURL || "",
+    };
+
+    return serializedUser;
   } catch (err) {
     requestErrorCatcher(err, { dispatch, rejectWithValue });
   }

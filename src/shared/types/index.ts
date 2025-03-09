@@ -6,7 +6,12 @@ export enum Loading {
 }
 
 export type AuthStore = {
-  user: any;
+  user: {
+    uid: string;
+    email: string;
+    displayName: string;
+    photoURL: string;
+  };
   error: any;
   loading: Loading;
   isAuthenticated: boolean;
