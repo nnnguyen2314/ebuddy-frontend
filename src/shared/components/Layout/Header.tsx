@@ -6,7 +6,7 @@ import { AppBar, Button, Toolbar, Typography } from '@mui/material';
 import useAppDispatch from '@/shared/hooks/useAppDispatch';
 import useAppSelector from '@/shared/hooks/useAppSelector';
 import { RootState } from '@/shared/store';
-import { logout } from '@/features/auth/store/authSlice';
+import { logout } from '@/features/auth/store/auth.slice';
 
 const Header = () => {
   const dispatch = useAppDispatch();
