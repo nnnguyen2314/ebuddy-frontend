@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { auth } from '@/shared/config/firebaseConfig';
 import useAppDispatch from '../../../../shared/hooks/useAppDispatch';
 import { doLogin } from '@/features/auth/store/auth.actions';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 export const useLoginForm = () => {
   const router = useRouter();
@@ -23,13 +23,13 @@ export const useLoginForm = () => {
     async (auth, email, password) => {
       await dispatch(doLogin({ auth, email, password }));
     },
-    [dispatch],
+    [dispatch]
   );
 
   const handleLogin = async () => {
     try {
       await handleDoLogin(auth, email, password);
-      router.push("/dashboard");
+      router.push('/dashboard');
     } catch (error) {
       console.error('Login failed', error);
     }

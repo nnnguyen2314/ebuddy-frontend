@@ -1,4 +1,4 @@
-import { AnyAction, configureStore, ThunkDispatch } from '@reduxjs/toolkit'
+import { AnyAction, configureStore, ThunkDispatch } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import reducers from '@/shared/store/reducers';
