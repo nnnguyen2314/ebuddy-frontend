@@ -8,7 +8,7 @@ import theme from '@/shared/theme';
 import { Box, Container, CssBaseline, ThemeProvider } from '@mui/material';
 import Header from '@/shared/components/Layout/Header';
 import './globals.css';
-import SnackbarNotification from '@/shared/components/Layout/SnackbarNotification'
+import SnackbarNotification from '@/shared/components/Layout/SnackbarNotification';
 
 export default function RootLayout({
   children,

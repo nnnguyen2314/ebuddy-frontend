@@ -7,7 +7,7 @@ import useAppDispatch from '@/shared/hooks/useAppDispatch';
 import useAppSelector from '@/shared/hooks/useAppSelector';
 import { RootState } from '@/shared/store';
 import { logout } from '@/features/auth/store/auth.slice';
-import { getAuthState } from '@/features/auth/store/auth.selectors'
+import { getAuthState } from '@/features/auth/store/auth.selectors';
 
 const Header = () => {
   const dispatch = useAppDispatch();

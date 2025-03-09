@@ -11,4 +11,4 @@ export interface AuthStore {
   error: any;
   loading: Loading;
   isAuthenticated: boolean;
-};
+}

@@ -1,7 +1,7 @@
 import { AnyAction, combineReducers } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 import authReducer from '@/features/auth/store/auth.slice';
-import notificationReducer from "@/shared/store/notification.slice";
+import notificationReducer from '@/shared/store/notification.slice';
 
 export const combinedReducer = combineReducers({
   auth: authReducer,

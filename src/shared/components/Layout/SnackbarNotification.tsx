@@ -1,8 +1,8 @@
-"use client";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/shared/store";
-import { clearNotification } from "@/shared/store/notification.slice";
-import { Snackbar, Alert } from "@mui/material";
+'use client';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '@/shared/store';
+import { clearNotification } from '@/shared/store/notification.slice';
+import { Snackbar, Alert } from '@mui/material';
 
 const SnackbarNotification = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const SnackbarNotification = () => {
 
   return (
     <Snackbar open={!!message} autoHideDuration={3000} onClose={handleClose}>
-      <Alert onClose={handleClose} severity={type || "info"} sx={{ width: "100%" }}>
+      <Alert onClose={handleClose} severity={type || 'info'} sx={{ width: '100%' }}>
         {message}
       </Alert>
     </Snackbar>
