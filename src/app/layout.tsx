@@ -8,6 +8,7 @@ import theme from '@/shared/theme';
 import { Box, Container, CssBaseline, ThemeProvider } from '@mui/material';
 import Header from '@/shared/components/Layout/Header';
 import './globals.css';
+import SnackbarNotification from '@/shared/components/Layout/SnackbarNotification'
 
 export default function RootLayout({
   children,
@@ -21,6 +22,7 @@ export default function RootLayout({
           <PersistGate loading={null} persistor={persistedStore}>
             <ThemeProvider theme={theme}>
               <CssBaseline />
+              <SnackbarNotification />
               <Header />
               <Container maxWidth="md">
                 <Box sx={{ marginTop: 4 }}>{children}</Box>
