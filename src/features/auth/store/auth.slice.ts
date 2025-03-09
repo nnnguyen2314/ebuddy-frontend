@@ -3,14 +3,10 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { AuthStore, Loading } from '@/shared/types';
 import { doLogin } from '@/features/auth/store/auth.actions';
+import { User } from 'firebase/auth';
 
 export const initialState: AuthStore = {
-  user: {
-    uid: '',
-    email: '',
-    displayName: '',
-    photoURL: '',
-  },
+  user: null,
   error: undefined,
   loading: Loading.idle,
   isAuthenticated: false,
@@ -48,6 +44,10 @@ const authSlice = createSlice({
   initialState,
   extraReducers: authExtraReducers,
   reducers: {
+    setUser(state, action: PayloadAction<User | null>) {
+      state.user = action.payload;
+      state.isAuthenticated = !!action.payload;
+    },
     logout(state) {
       state.user = undefined;
       state.isAuthenticated = false;
@@ -61,5 +61,5 @@ const persistConfig = {
   storage,
 };
 
-export const { logout } = authSlice.actions;
+export const { logout, setUser } = authSlice.actions;
 export default persistReducer(persistConfig, authSlice.reducer);

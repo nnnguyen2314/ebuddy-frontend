@@ -1,3 +1,4 @@
+import { User } from 'firebase/auth';
 export enum Loading {
   idle = 'idle',
   pending = 'pending',
@@ -5,13 +6,8 @@ export enum Loading {
   failed = 'failed',
 }
 
-export type AuthStore = {
-  user: {
-    uid: string;
-    email: string;
-    displayName: string;
-    photoURL: string;
-  };
+export interface AuthStore {
+  user: User | null;
   error: any;
   loading: Loading;
   isAuthenticated: boolean;
