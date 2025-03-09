@@ -7,11 +7,12 @@ import useAppDispatch from '@/shared/hooks/useAppDispatch';
 import useAppSelector from '@/shared/hooks/useAppSelector';
 import { RootState } from '@/shared/store';
 import { logout } from '@/features/auth/store/auth.slice';
+import { getAuthState } from '@/features/auth/store/auth.selectors'
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const user = useAppSelector((state: RootState) => state.user);
+  const { user } = useAppSelector(getAuthState);
 
   const handleLogout = () => {
     dispatch(logout());
